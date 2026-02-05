@@ -22,7 +22,8 @@ const GrowthCalculator = () => {
   const improvedRevenue = improvedLeads * avgDealValue;
 
   const additionalRevenue = improvedRevenue - currentRevenue;
-  const roiMultiplier = Math.round((additionalRevenue / 35000) * 100) / 100; // Against Growth plan price
+  const revenueGap = additionalRevenue;
+  const roiMultiplier = Math.round((additionalRevenue / 4997) * 100) / 100; // Against Growth plan price
 
   return (
     <section className="py-20 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
@@ -101,7 +102,7 @@ const GrowthCalculator = () => {
                 {/* Average Deal Value */}
                 <div>
                   <Label htmlFor="dealValue" className="text-gray-300 mb-3 block">
-                    Average Deal Value (₹)
+                    Average Deal Value (USD $)
                   </Label>
                   <Input
                     id="dealValue"
@@ -109,6 +110,7 @@ const GrowthCalculator = () => {
                     value={avgDealValue}
                     onChange={(e) => setAvgDealValue(Number(e.target.value) || 0)}
                     className="bg-slate-900/50 border-gray-700 text-white text-lg"
+                    placeholder="5000"
                   />
                 </div>
               </div>
@@ -137,7 +139,7 @@ const GrowthCalculator = () => {
                       <DollarSign className="h-5 w-5 text-gray-400" />
                       <span className="text-gray-300">Monthly Revenue</span>
                     </div>
-                    <span className="text-2xl font-bold text-white">₹{currentRevenue.toLocaleString()}</span>
+                    <span className="text-2xl font-bold text-white">${currentRevenue.toLocaleString()}</span>
                   </div>
                 </div>
               </div>
@@ -165,20 +167,28 @@ const GrowthCalculator = () => {
                       <span className="text-gray-300">Monthly Revenue</span>
                     </div>
                     <div className="text-right">
-                      <span className="text-2xl font-bold text-white">₹{improvedRevenue.toLocaleString()}</span>
-                      <span className="text-sm text-green-400 ml-2">(+₹{additionalRevenue.toLocaleString()})</span>
+                      <span className="text-2xl font-bold text-white">${improvedRevenue.toLocaleString()}</span>
+                      <span className="text-sm text-green-400 ml-2">(+${additionalRevenue.toLocaleString()})</span>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* ROI */}
+              {/* ROI & Revenue Gap */}
               <div className="bg-gradient-to-br from-blue-900/30 to-purple-900/30 rounded-2xl p-6 border border-blue-500/50">
-                <h4 className="text-lg font-semibold text-blue-400 mb-2">Estimated ROI</h4>
-                <p className="text-4xl font-bold text-white mb-2">{roiMultiplier}x</p>
-                <p className="text-sm text-gray-400">
-                  For every ₹1 spent, you get back ₹{roiMultiplier}
-                </p>
+                <h4 className="text-lg font-semibold text-blue-400 mb-4">Revenue Gap Analysis</h4>
+                <div className="space-y-3">
+                  <div>
+                    <p className="text-sm text-gray-400 mb-1">Revenue Gap</p>
+                    <p className="text-3xl font-bold text-white">${revenueGap.toLocaleString()}</p>
+                    <p className="text-xs text-gray-500 mt-1">Additional monthly revenue potential</p>
+                  </div>
+                  <div className="pt-3 border-t border-gray-700">
+                    <p className="text-sm text-gray-400 mb-1">Estimated ROI</p>
+                    <p className="text-3xl font-bold text-green-400">{roiMultiplier}x</p>
+                    <p className="text-xs text-gray-500 mt-1">For every $1 spent, you get back ${roiMultiplier}</p>
+                  </div>
+                </div>
               </div>
 
               {/* CTA */}
