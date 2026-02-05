@@ -79,14 +79,19 @@ const Hero = () => {
             className="text-center mb-8"
           >
             <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6">
-              <span className="text-white">Generate </span>
+              <span className="text-white">AI-Powered Growth for </span>
               <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-orange-400 bg-clip-text text-transparent">
-                {typedText}
-                <span className="animate-pulse">|</span>
+                B2B & Service Businesses
               </span>
-              <br />
-              <span className="text-white">That Actually Convert</span>
             </h1>
+            
+            {/* 30-60 Day Hook */}
+            <div className="inline-block bg-gradient-to-r from-orange-500/20 to-orange-600/20 border-2 border-orange-500 rounded-2xl px-8 py-6 mb-6">
+              <p className="text-2xl md:text-4xl font-black text-white">
+                Sales-Ready Decision Makers in{' '}
+                <span className="text-orange-400">30-60 Days</span>
+              </p>
+            </div>
             
             <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
               Stop wasting time on unqualified prospects. Our AI-powered system delivers
