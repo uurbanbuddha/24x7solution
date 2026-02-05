@@ -50,13 +50,13 @@ export const clientTestimonials = [
 export const caseStudiesData = [
   {
     id: 1,
-    title: 'SaaS Company Scales to ₹50L ARR',
+    title: 'SaaS Company Scales to $600K ARR',
     client: 'Anonymous SaaS',
     industry: 'B2B SaaS',
     challenge: 'Zero inbound leads, high CAC',
     solution: 'Implemented multi-channel lead gen + conversion optimization',
     results: {
-      metric1: '₹50L',
+      metric1: '$600K',
       label1: 'Annual Recurring Revenue',
       metric2: '12%',
       label2: 'Trial-to-Paid Conversion',
@@ -94,7 +94,7 @@ export const caseStudiesData = [
       label1: 'Qualified Leads',
       metric2: '45%',
       label2: 'Lead Quality Score',
-      metric3: '₹180',
+      metric3: '$21',
       label3: 'Cost Per Qualified Lead'
     },
     image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=600&fit=crop'
