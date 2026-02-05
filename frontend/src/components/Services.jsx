@@ -11,6 +11,21 @@ const iconMap = {
   Bot: Bot
 };
 
+const ServiceFeatures = ({ features }) => {
+  return (
+    <div className="grid md:grid-cols-2 gap-4">
+      {features.map((feature, idx) => (
+        <div key={`feature-${idx}`} className="flex items-start space-x-3">
+          <div className="flex-shrink-0 w-6 h-6 rounded-full bg-black flex items-center justify-center mt-0.5">
+            <Check className="h-4 w-4 text-white" />
+          </div>
+          <span className="text-gray-700">{feature}</span>
+        </div>
+      ))}
+    </div>
+  );
+};
+
 const Services = () => {
   const [activeTab, setActiveTab] = useState('performance');
 
@@ -22,7 +37,6 @@ const Services = () => {
         </div>
 
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          {/* Service Icons Row */}
           <TabsList className="grid grid-cols-2 md:grid-cols-5 gap-4 bg-transparent h-auto mb-12">
             {services.map((service) => {
               const IconComponent = iconMap[service.icon];
@@ -45,23 +59,13 @@ const Services = () => {
             })}
           </TabsList>
 
-          {/* Service Content */}
           {services.map((service) => (
             <TabsContent key={service.id} value={service.id} className="mt-8">
               <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-12 border border-gray-200">
                 <div className="max-w-3xl mx-auto">
                   <h3 className="text-3xl font-bold mb-4">{service.title}</h3>
                   <p className="text-gray-600 mb-8">{service.description}</p>
-                  <div className="grid md:grid-cols-2 gap-4">
-                    {service.features.map((feature, featureIndex) => (
-                      <div key={featureIndex} className="flex items-start space-x-3">
-                        <div className="flex-shrink-0 w-6 h-6 rounded-full bg-black flex items-center justify-center mt-0.5">
-                          <Check className="h-4 w-4 text-white" />
-                        </div>
-                        <span className="text-gray-700">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
+                  <ServiceFeatures features={service.features} />
                 </div>
               </div>
             </TabsContent>
