@@ -14,7 +14,7 @@ const Pricing = () => {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {pricingPlans.map((plan) => (
+          {pricingPlans.map((plan, planIndex) => (
             <div
               key={plan.id}
               className={`rounded-2xl p-8 transition-all duration-300 ${
@@ -53,8 +53,8 @@ const Pricing = () => {
               </div>
 
               <div className="space-y-3 mb-8">
-                {plan.features.map((feature, index) => (
-                  <div key={index} className="flex items-start space-x-3">
+                {plan.features.map((feature, featureIndex) => (
+                  <div key={featureIndex} className="flex items-start space-x-3">
                     <div className={`flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center mt-0.5 ${
                       plan.highlight ? 'bg-green-500' : 'bg-black'
                     }`}>

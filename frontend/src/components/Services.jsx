@@ -53,8 +53,8 @@ const Services = () => {
                   <h3 className="text-3xl font-bold mb-4">{service.title}</h3>
                   <p className="text-gray-600 mb-8">{service.description}</p>
                   <div className="grid md:grid-cols-2 gap-4">
-                    {service.features.map((feature, index) => (
-                      <div key={index} className="flex items-start space-x-3">
+                    {service.features.map((feature, featureIndex) => (
+                      <div key={featureIndex} className="flex items-start space-x-3">
                         <div className="flex-shrink-0 w-6 h-6 rounded-full bg-black flex items-center justify-center mt-0.5">
                           <Check className="h-4 w-4 text-white" />
                         </div>

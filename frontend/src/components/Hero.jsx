@@ -4,7 +4,7 @@ import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Label } from './ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
-import { toast } from './ui/use-toast';
+import { toast } from '../hooks/use-toast';
 import { trustedBrands } from '../mockData';
 
 const Hero = () => {
