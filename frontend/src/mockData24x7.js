@@ -122,7 +122,7 @@ export const pricingPlansData = [
   {
     id: 'starter',
     name: 'Starter',
-    price: '₹15,000',
+    price: '$1,997',
     period: 'per month',
     description: 'Perfect for small businesses getting started',
     features: [
@@ -139,7 +139,7 @@ export const pricingPlansData = [
   {
     id: 'growth',
     name: 'Growth',
-    price: '₹35,000',
+    price: '$4,997',
     period: 'per month',
     description: 'Most popular for scaling businesses',
     features: [
@@ -154,12 +154,12 @@ export const pricingPlansData = [
     ],
     cta: 'Get Started',
     popular: true,
-    savings: 'Save ₹12,000/year'
+    savings: 'Save $12,000/year'
   },
   {
     id: 'enterprise',
     name: 'Enterprise',
-    price: '₹75,000',
+    price: '$9,997',
     period: 'per month',
     description: 'For businesses that need everything',
     features: [
