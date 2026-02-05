@@ -1,39 +1,24 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './App.css';
 import { Toaster } from './components/ui/sonner';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import PainPoints from './components/PainPoints';
-import Services from './components/Services';
-import Comparison from './components/Comparison';
-import CaseStudies from './components/CaseStudies';
-import Testimonials from './components/Testimonials';
-import Pricing from './components/Pricing';
-import FAQ from './components/FAQ';
-import Footer from './components/Footer';
+import Navbar from './components24x7/Navbar';
+import Hero from './components24x7/Hero';
+import FOMONotification from './components24x7/FOMONotification';
+import ServicesSection from './components24x7/ServicesSection';
+import GrowthCalculator from './components24x7/GrowthCalculator';
+import LeadCaptureForm from './components24x7/LeadCaptureForm';
 
 function App() {
-  useEffect(() => {
-    // Smooth scroll behavior
-    document.documentElement.style.scrollBehavior = 'smooth';
-  }, []);
-
   return (
-    <div className="App">
+    <div className="App bg-slate-950 min-h-screen">
       <Navbar />
       <main>
-        <div id="hero">
-          <Hero />
-        </div>
-        <PainPoints />
-        <Services />
-        <Comparison />
-        <CaseStudies />
-        <Testimonials />
-        <Pricing />
-        <FAQ />
+        <Hero />
+        <ServicesSection />
+        <GrowthCalculator />
+        <LeadCaptureForm />
       </main>
-      <Footer />
+      <FOMONotification />
       <Toaster />
     </div>
   );
