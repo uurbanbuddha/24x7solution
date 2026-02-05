@@ -21,7 +21,7 @@ export const SERVICES = [
       'Automated follow-up sequences',
       'CRM integration'
     ],
-    price: '₹25,000/month',
+    price: '$2,997/month',
     recommended: true
   },
   {
@@ -35,7 +35,7 @@ export const SERVICES = [
       'Mobile-first approach',
       'Performance optimization'
     ],
-    price: '₹1,50,000 - ₹5,00,000'
+    price: '$15,000 - $50,000'
   },
   {
     id: 'performance-marketing',
@@ -48,7 +48,7 @@ export const SERVICES = [
       'Real-time analytics',
       'ROI-focused approach'
     ],
-    price: '₹30,000/month + Ad Spend'
+    price: '$3,500/month + Ad Spend'
   },
   {
     id: 'seo',
@@ -61,7 +61,7 @@ export const SERVICES = [
       'Link building',
       'Local SEO'
     ],
-    price: '₹20,000/month'
+    price: '$2,400/month'
   },
   {
     id: 'cro',
@@ -74,7 +74,7 @@ export const SERVICES = [
       'UX improvements',
       'Analytics setup'
     ],
-    price: '₹35,000/month'
+    price: '$4,200/month'
   }
 ];
 
@@ -102,7 +102,7 @@ export const STRIPE_CONFIG = {
     {
       id: 'starter',
       name: 'Starter',
-      price: 15000,
+      price: 1997,
       interval: 'month',
       features: [
         'Lead Generation Dashboard',
@@ -114,7 +114,7 @@ export const STRIPE_CONFIG = {
     {
       id: 'growth',
       name: 'Growth',
-      price: 35000,
+      price: 4997,
       interval: 'month',
       features: [
         'Everything in Starter',
@@ -129,7 +129,7 @@ export const STRIPE_CONFIG = {
     {
       id: 'enterprise',
       name: 'Enterprise',
-      price: 75000,
+      price: 9997,
       interval: 'month',
       features: [
         'Everything in Growth',
