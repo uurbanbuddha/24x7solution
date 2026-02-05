@@ -4,6 +4,7 @@ import { Toaster } from './components/ui/sonner';
 import Navbar from './components24x7/Navbar';
 import Hero from './components24x7/Hero';
 import FOMONotification from './components24x7/FOMONotification';
+import GuaranteeSection from './components24x7/GuaranteeSection';
 import GrowthCalculator from './components24x7/GrowthCalculator';
 import CaseStudiesSection from './components24x7/CaseStudiesSection';
 import TestimonialsSection from './components24x7/TestimonialsSection';
@@ -17,6 +18,7 @@ function App() {
       <Navbar />
       <main>
         <Hero />
+        <GuaranteeSection />
         <CaseStudiesSection />
         <GrowthCalculator />
         <TestimonialsSection />
