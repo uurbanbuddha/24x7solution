@@ -6,7 +6,12 @@ import Hero from './components24x7/Hero';
 import FOMONotification from './components24x7/FOMONotification';
 import ServicesSection from './components24x7/ServicesSection';
 import GrowthCalculator from './components24x7/GrowthCalculator';
+import CaseStudiesSection from './components24x7/CaseStudiesSection';
+import TestimonialsSection from './components24x7/TestimonialsSection';
+import PricingSection from './components24x7/PricingSection';
 import LeadCaptureForm from './components24x7/LeadCaptureForm';
+import FAQSection from './components24x7/FAQSection';
+import Footer from './components24x7/Footer';
 
 function App() {
   return (
@@ -15,9 +20,14 @@ function App() {
       <main>
         <Hero />
         <ServicesSection />
+        <CaseStudiesSection />
         <GrowthCalculator />
+        <TestimonialsSection />
+        <PricingSection />
         <LeadCaptureForm />
+        <FAQSection />
       </main>
+      <Footer />
       <FOMONotification />
       <Toaster />
     </div>
