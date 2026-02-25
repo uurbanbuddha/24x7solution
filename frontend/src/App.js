@@ -8,6 +8,7 @@ import GuaranteeSection from './components24x7/GuaranteeSection';
 import GrowthCalculator from './components24x7/GrowthCalculator';
 import CaseStudiesSection from './components24x7/CaseStudiesSection';
 import TestimonialsSection from './components24x7/TestimonialsSection';
+import SimplePricingSection from './components24x7/SimplePricingSection';
 import LeadCaptureForm from './components24x7/LeadCaptureForm';
 import FAQSection from './components24x7/FAQSection';
 import Footer from './components24x7/Footer';
@@ -22,6 +23,7 @@ function App() {
         <CaseStudiesSection />
         <GrowthCalculator />
         <TestimonialsSection />
+        <SimplePricingSection />
         <LeadCaptureForm />
         <FAQSection />
       </main>
