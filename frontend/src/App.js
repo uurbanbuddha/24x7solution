@@ -5,7 +5,6 @@ import Navbar from './components24x7/Navbar';
 import HonestHero from './components24x7/HonestHero';
 import WhyItMattersSection from './components24x7/WhyItMattersSection';
 import WhatWeDoSection from './components24x7/WhatWeDoSection';
-import SimpleGuarantee from './components24x7/SimpleGuarantee';
 import GrowthCalculator from './components24x7/GrowthCalculator';
 import LeadCaptureForm from './components24x7/LeadCaptureForm';
 import FAQSection from './components24x7/FAQSection';
@@ -19,7 +18,6 @@ function App() {
         <HonestHero />
         <WhyItMattersSection />
         <WhatWeDoSection />
-        <SimpleGuarantee />
         <div id="calculator">
           <GrowthCalculator />
         </div>
