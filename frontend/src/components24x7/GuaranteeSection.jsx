@@ -48,7 +48,7 @@ const GuaranteeSection = () => {
                   60-Day Money-Back Guarantee
                 </h3>
                 <p className="text-xl text-gray-300 leading-relaxed mb-6">
-                  If we don't meet the specific KPIs (Key Performance Indicators) agreed upon during your onboarding within <span className="text-green-400 font-bold">60 days</span>, you get a <span className="text-green-400 font-bold">100% refund</span>. No questions asked. No hidden clauses.
+                  If we fail to deliver the specific KPIs (Key Performance Indicators) agreed upon during your onboarding within <span className="text-green-400 font-bold">60 days</span>, you get a <span className="text-green-400 font-bold">100% refund</span>. No questions asked. No hidden clauses.
                 </p>
                 
                 {/* Trust Badges */}
