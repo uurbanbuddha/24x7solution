@@ -1,157 +1,31 @@
-// 24x7solution.in Configuration
+const API_URL = process.env.REACT_APP_BACKEND_URL;
 
 export const SITE_CONFIG = {
-  name: '24x7solution',
+  name: '24x7 Solution',
   domain: '24x7solution.in',
-  title: 'High-Intent Lead Generation & Digital Growth Agency',
-  description: 'Performance marketing and digital growth solutions for B2B and B2C businesses',
+  url: 'https://www.24x7solution.in',
+  tagline: 'Always On. Always Growing.',
+  description: '24x7 Solution is a performance marketing agency that runs your paid social, lead generation & Google Ads around the clock.',
   email: 'hello@24x7solution.in',
-  phone: '+91-XXXXXXXXXX',
+  calendlyUrl: 'https://calendly.com/24x7solution',
+  social: {
+    linkedin: 'https://linkedin.com/company/24x7solution',
+    instagram: 'https://instagram.com/24x7solution',
+    facebook: 'https://facebook.com/24x7solution',
+    twitter: 'https://x.com/24x7solution',
+    youtube: 'https://youtube.com/@24x7solution',
+  }
 };
 
-export const SERVICES = [
-  {
-    id: 'lead-gen',
-    title: 'High-Intent Lead Generation',
-    description: 'AI-powered lead qualification and nurturing system',
-    icon: 'Target',
-    features: [
-      'Multi-channel lead capture',
-      'AI-based lead scoring',
-      'Automated follow-up sequences',
-      'CRM integration'
-    ],
-    price: '$2,997/month',
-    recommended: true
-  },
-  {
-    id: 'web-dev',
-    title: 'Custom Website & App Development',
-    description: 'High-converting websites and applications',
-    icon: 'Code',
-    features: [
-      'Custom design & development',
-      'SEO-optimized architecture',
-      'Mobile-first approach',
-      'Performance optimization'
-    ],
-    price: '$15,000 - $50,000'
-  },
-  {
-    id: 'performance-marketing',
-    title: 'Performance Marketing',
-    description: 'Data-driven Meta & Google Ads campaigns',
-    icon: 'TrendingUp',
-    features: [
-      'Campaign strategy & setup',
-      'A/B testing & optimization',
-      'Real-time analytics',
-      'ROI-focused approach'
-    ],
-    price: '$3,500/month + Ad Spend'
-  },
-  {
-    id: 'seo',
-    title: 'SEO & Content Strategy',
-    description: 'Organic growth through search optimization',
-    icon: 'Search',
-    features: [
-      'Technical SEO audit',
-      'Content optimization',
-      'Link building',
-      'Local SEO'
-    ],
-    price: '$2,400/month'
-  },
-  {
-    id: 'cro',
-    title: 'Conversion Rate Optimization',
-    description: 'Turn more visitors into customers',
-    icon: 'BarChart',
-    features: [
-      'Funnel analysis',
-      'A/B testing',
-      'UX improvements',
-      'Analytics setup'
-    ],
-    price: '$4,200/month'
-  }
+export const API_ENDPOINTS = {
+  contact: `${API_URL}/api/contact`,
+  audit: `${API_URL}/api/audit`,
+  newsletter: `${API_URL}/api/newsletter`,
+};
+
+export const NAV_LINKS = [
+  { label: 'Services', href: '/services' },
+  { label: 'Case Studies', href: '/case-studies' },
+  { label: 'About', href: '/about' },
+  { label: 'Blog', href: '/blog' },
 ];
-
-export const COLOR_PALETTE = {
-  primary: {
-    dark: '#0f172a', // Deep blue-black (stability, trust)
-    light: '#1e293b'
-  },
-  accent: {
-    neon: '#38bdf8', // Neon blue (action, energy)
-    electric: '#a855f7', // Electric purple (innovation)
-    orange: '#fb923c' // Electric orange (CTA - Von Restorff)
-  },
-  trust: '#10b981', // Green (success, verification)
-  background: {
-    dark: '#020617',
-    light: '#f8fafc'
-  }
-};
-
-// Mock Stripe Configuration
-export const STRIPE_CONFIG = {
-  publishableKey: 'pk_test_mock_24x7solution',
-  plans: [
-    {
-      id: 'starter',
-      name: 'Starter',
-      price: 1997,
-      interval: 'month',
-      features: [
-        'Lead Generation Dashboard',
-        'Up to 100 leads/month',
-        'Email Support',
-        'Basic Analytics'
-      ]
-    },
-    {
-      id: 'growth',
-      name: 'Growth',
-      price: 4997,
-      interval: 'month',
-      features: [
-        'Everything in Starter',
-        'Up to 500 leads/month',
-        'Priority Support',
-        'Advanced Analytics',
-        'CRM Integration',
-        'Dedicated Account Manager'
-      ],
-      recommended: true
-    },
-    {
-      id: 'enterprise',
-      name: 'Enterprise',
-      price: 9997,
-      interval: 'month',
-      features: [
-        'Everything in Growth',
-        'Unlimited leads',
-        '24/7 Support',
-        'Custom Integrations',
-        'White-label Solutions',
-        'Dedicated Team'
-      ]
-    }
-  ]
-};
-
-// Supabase Mock Configuration
-export const SUPABASE_CONFIG = {
-  url: 'https://mock.supabase.co',
-  anonKey: 'mock_anon_key_24x7solution'
-};
-
-export const SOCIAL_PROOF = {
-  totalLeads: 10500,
-  activeClients: 47,
-  avgROI: 320,
-  yearsFounded: 2020
-};

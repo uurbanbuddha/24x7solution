@@ -5,11 +5,10 @@ from motor.motor_asyncio import AsyncIOMotorClient
 import os
 import logging
 from pathlib import Path
-from pydantic import BaseModel, Field, ConfigDict
-from typing import List
+from pydantic import BaseModel, Field
+from typing import List, Optional
 import uuid
 from datetime import datetime, timezone
-
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
@@ -19,54 +18,85 @@ mongo_url = os.environ['MONGO_URL']
 client = AsyncIOMotorClient(mongo_url)
 db = client[os.environ['DB_NAME']]
 
-# Create the main app without a prefix
 app = FastAPI()
-
-# Create a router with the /api prefix
 api_router = APIRouter(prefix="/api")
 
+# Configure logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
 
-# Define Models
-class StatusCheck(BaseModel):
-    model_config = ConfigDict(extra="ignore")  # Ignore MongoDB's _id field
-    
-    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
-    client_name: str
-    timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
 
-class StatusCheckCreate(BaseModel):
-    client_name: str
+# ─── Models ───────────────────────────────────────────
 
-# Add your routes to the router instead of directly to app
+class ContactSubmission(BaseModel):
+    name: str
+    email: str
+    company: str
+    website: Optional[str] = None
+    country: str
+    budget: str
+    services: List[str]
+    message: Optional[str] = None
+
+class AuditSubmission(BaseModel):
+    name: str
+    email: str
+    website: str
+    spend: str
+    country: str
+
+class NewsletterSubmission(BaseModel):
+    email: str
+
+
+# ─── Routes ───────────────────────────────────────────
+
 @api_router.get("/")
 async def root():
-    return {"message": "Hello World"}
+    return {"message": "24x7 Solution API", "status": "live"}
 
-@api_router.post("/status", response_model=StatusCheck)
-async def create_status_check(input: StatusCheckCreate):
-    status_dict = input.model_dump()
-    status_obj = StatusCheck(**status_dict)
-    
-    # Convert to dict and serialize datetime to ISO string for MongoDB
-    doc = status_obj.model_dump()
-    doc['timestamp'] = doc['timestamp'].isoformat()
-    
-    _ = await db.status_checks.insert_one(doc)
-    return status_obj
+@api_router.post("/contact")
+async def submit_contact(data: ContactSubmission):
+    doc = data.model_dump()
+    doc["id"] = str(uuid.uuid4())
+    doc["created_at"] = datetime.now(timezone.utc).isoformat()
+    doc["source"] = "contact_form"
+    await db.leads.insert_one(doc)
+    logger.info(f"Contact form submission from {data.email}")
+    return {"success": True, "message": "We'll get back to you within 2 hours."}
 
-@api_router.get("/status", response_model=List[StatusCheck])
-async def get_status_checks():
-    # Exclude MongoDB's _id field from the query results
-    status_checks = await db.status_checks.find({}, {"_id": 0}).to_list(1000)
-    
-    # Convert ISO string timestamps back to datetime objects
-    for check in status_checks:
-        if isinstance(check['timestamp'], str):
-            check['timestamp'] = datetime.fromisoformat(check['timestamp'])
-    
-    return status_checks
+@api_router.post("/audit")
+async def submit_audit(data: AuditSubmission):
+    doc = data.model_dump()
+    doc["id"] = str(uuid.uuid4())
+    doc["created_at"] = datetime.now(timezone.utc).isoformat()
+    doc["source"] = "free_audit"
+    await db.leads.insert_one(doc)
+    logger.info(f"Free audit request from {data.email}")
+    return {"success": True, "message": "Your audit request has been received."}
 
-# Include the router in the main app
+@api_router.post("/newsletter")
+async def submit_newsletter(data: NewsletterSubmission):
+    doc = data.model_dump()
+    doc["id"] = str(uuid.uuid4())
+    doc["subscribed_at"] = datetime.now(timezone.utc).isoformat()
+    await db.newsletter_subscribers.insert_one(doc)
+    logger.info(f"Newsletter subscription: {data.email}")
+    return {"success": True, "message": "Subscribed successfully."}
+
+@api_router.get("/leads")
+async def get_leads():
+    leads = await db.leads.find({}, {"_id": 0}).sort("created_at", -1).to_list(500)
+    return {"leads": leads, "total": len(leads)}
+
+@api_router.get("/newsletter/subscribers")
+async def get_subscribers():
+    subs = await db.newsletter_subscribers.find({}, {"_id": 0}).sort("subscribed_at", -1).to_list(500)
+    return {"subscribers": subs, "total": len(subs)}
+
+
+# ─── App Setup ────────────────────────────────────────
+
 app.include_router(api_router)
 
 app.add_middleware(
@@ -76,13 +106,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-# Configure logging
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-)
-logger = logging.getLogger(__name__)
 
 @app.on_event("shutdown")
 async def shutdown_db_client():
