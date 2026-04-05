@@ -17,7 +17,9 @@ function IncludedItem({ text }) {
 
 function MarketTag({ name }) {
   return (
-    <span className="text-xs font-mono px-2 py-1 rounded bg-brand-surface border border-brand-border text-brand-muted">{name}</span>
+    <span className="text-xs font-mono px-2 py-1 rounded bg-brand-surface border border-brand-border text-brand-muted">
+      {name}
+    </span>
   );
 }
 
@@ -30,12 +32,19 @@ function ServiceBlock({ svc, idx }) {
   return (
     <div id={svc.id} className={`py-16 lg:py-20 ${bg}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start"
+        >
           <div>
             <div className="w-12 h-12 rounded-xl bg-brand-mint/10 border border-brand-mint/20 flex items-center justify-center mb-5">
               {Icon && <Icon size={24} className="text-brand-mint" />}
             </div>
-            <h2 className="font-display font-800 text-2xl sm:text-3xl text-brand-text mb-2">{svc.title}</h2>
+            <h2 className="font-display font-800 text-2xl sm:text-3xl text-brand-text mb-2">
+              {svc.title}
+            </h2>
             <p className="text-sm text-brand-muted font-mono mb-4">{svc.subtitle}</p>
             <p className="text-brand-muted leading-relaxed mb-6">{svc.description}</p>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-brand-mint/10 border border-brand-mint/20 mb-6">
@@ -45,12 +54,18 @@ function ServiceBlock({ svc, idx }) {
             <div className="flex items-center gap-2 mb-6">
               {mkts.map((m) => <MarketTag key={m} name={m} />)}
             </div>
-            <Link to="/contact" data-testid={`service-cta-${svc.id}`} className="inline-flex items-center gap-2 px-6 py-3 bg-brand-mint text-brand-bg font-display font-700 text-sm rounded-full hover:shadow-[0_0_24px_rgba(0,255,136,0.3)] transition-all duration-300">
+            <Link
+              to="/contact"
+              data-testid={`service-cta-${svc.id}`}
+              className="inline-flex items-center gap-2 px-6 py-3 bg-brand-mint text-brand-bg font-display font-700 text-sm rounded-full hover:shadow-[0_0_24px_rgba(0,255,136,0.3)] transition-all duration-300"
+            >
               Start {svc.title} <ArrowRight size={16} />
             </Link>
           </div>
           <div className="space-y-3">
-            <h3 className="font-display font-600 text-brand-text text-sm mb-4 uppercase tracking-wider">What's Included</h3>
+            <h3 className="font-display font-600 text-brand-text text-sm mb-4 uppercase tracking-wider">
+              What's Included
+            </h3>
             {items.map((item) => <IncludedItem key={item} text={item} />)}
           </div>
         </motion.div>
@@ -65,17 +80,31 @@ export default function ServicesPage() {
   return (
     <>
       <Helmet>
-        <title>Performance Marketing Services | 24x7 Solution</title>
+        <title>Performance Marketing Services | Paid Social, Google Ads, Lead Gen | 24x7 Solution</title>
+        <meta name="description" content="Full-stack performance marketing services running 24x7 — Paid Social, Google Ads, Lead Generation, Performance Creative, Email Marketing & SEO for USA, AU & UK businesses." />
+        <meta property="og:title" content="Performance Marketing Services | 24x7 Solution" />
+        <meta property="og:description" content="Six core services. One relentless team. Every campaign monitored around the clock for clients in USA, Australia & UK." />
+        <meta property="og:url" content="https://www.24x7solution.in/services" />
+        <link rel="canonical" href="https://www.24x7solution.in/services" />
       </Helmet>
+      <ServicesFaqJsonLd />
       <div className="pt-20" data-testid="services-page">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <p className="text-brand-mint font-mono text-sm mb-4 tracking-widest uppercase">What We Do</p>
-            <h1 className="font-display font-800 text-4xl sm:text-5xl text-brand-text mb-4">Full-Stack Performance Marketing.</h1>
-            <p className="text-brand-muted text-base max-w-2xl mx-auto">Six core services. One relentless team. Every campaign monitored around the clock.</p>
+            <p className="text-brand-mint font-mono text-sm mb-4 tracking-widest uppercase">
+              What We Do
+            </p>
+            <h1 className="font-display font-800 text-4xl sm:text-5xl text-brand-text mb-4">
+              Full-Stack Performance Marketing.
+            </h1>
+            <p className="text-brand-muted text-base max-w-2xl mx-auto">
+              Six core services. One relentless team. Every campaign monitored around the clock.
+            </p>
           </motion.div>
         </div>
-        {services.map((s, i) => <ServiceBlock key={s.id} svc={s} idx={i} />)}
+        {services.map((s, i) => (
+          <ServiceBlock key={s.id} svc={s} idx={i} />
+        ))}
       </div>
     </>
   );
