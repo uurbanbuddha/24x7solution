@@ -2,6 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Megaphone, Target, Zap, Video, Mail, Search, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ServicesFaqJsonLd } from '@/components/shared/JsonLd';
 
 const ICON_MAP = { Megaphone, Target, Zap, Video, Mail, Search };
 

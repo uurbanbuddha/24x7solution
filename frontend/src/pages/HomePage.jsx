@@ -8,6 +8,7 @@ import CaseStudiesPreview from '@/components/home/CaseStudiesPreview';
 import TestimonialsMarquee from '@/components/home/TestimonialsMarquee';
 import ProcessTimeline from '@/components/home/ProcessTimeline';
 import CtaBanner from '@/components/home/CtaBanner';
+import { HomeJsonLd } from '@/components/shared/JsonLd';
 
 export default function HomePage() {
   return (
@@ -16,6 +17,7 @@ export default function HomePage() {
         <title>24x7 Solution | Social Media Marketing & Lead Generation Agency | USA, AU, UK</title>
         <meta name="description" content="24x7 Solution is a performance marketing agency that runs your paid social, lead generation & Google Ads around the clock for clients in the US, Australia, and UK." />
       </Helmet>
+      <HomeJsonLd />
       <Hero />
       <MetricsBar />
       <TrustBar />

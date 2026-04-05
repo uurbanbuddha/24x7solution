@@ -3,6 +3,9 @@ import { Routes, Route } from 'react-router-dom';
 import { Toaster } from '@/components/ui/sonner';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
+import CookieBanner from '@/components/shared/CookieBanner';
+import LeadCaptureModal from '@/components/shared/LeadCaptureModal';
+import FloatingCTA from '@/components/shared/FloatingCTA';
 
 const HomePage = lazy(() => import('@/pages/HomePage'));
 const ServicesPage = lazy(() => import('@/pages/ServicesPage'));
@@ -15,6 +18,7 @@ const ContactPage = lazy(() => import('@/pages/ContactPage'));
 const FreeAuditPage = lazy(() => import('@/pages/FreeAuditPage'));
 const PrivacyPage = lazy(() => import('@/pages/PrivacyPage'));
 const TermsPage = lazy(() => import('@/pages/TermsPage'));
+const AdminPage = lazy(() => import('@/pages/AdminPage'));
 
 function PageLoader() {
   return (
@@ -45,10 +49,14 @@ function App() {
             <Route path="/free-audit" element={<FreeAuditPage />} />
             <Route path="/privacy" element={<PrivacyPage />} />
             <Route path="/terms" element={<TermsPage />} />
+            <Route path="/admin" element={<AdminPage />} />
           </Routes>
         </Suspense>
       </main>
       <Footer />
+      <CookieBanner />
+      <LeadCaptureModal />
+      <FloatingCTA />
       <Toaster />
     </div>
   );
