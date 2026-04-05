@@ -12,6 +12,10 @@ import { HomeJsonLd } from '@/components/shared/JsonLd';
 
 export default function HomePage() {
   return (
+    import JsonLd from '../components/shared/JsonLd';
+
+// Inside return(), as first child:
+<JsonLd type="organization" />
     <>
       <Helmet>
         <title>24x7 Solution | Social Media Marketing & Lead Generation Agency | USA, AU, UK</title>
